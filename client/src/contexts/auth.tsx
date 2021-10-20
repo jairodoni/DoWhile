@@ -29,7 +29,7 @@ export const AuthContext = createContext({} as AuthContextData)
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null)
 
-  const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.GITHUB_CLIENT_ID}`;
+  const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${import.meta.env.VITE_APP_GITHUB_ID}`;
 
   async function signIn(githubCode: string) {
 
@@ -40,7 +40,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const { token, user } = response.data;
 
     localStorage.setItem('@dowhile:token', token)
-    console.log(user);
   }
 
   function singnOut() {
