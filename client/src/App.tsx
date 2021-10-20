@@ -1,6 +1,6 @@
-import { MessageList } from "./components/MessageList";
-import { LoginBox } from "./components/LoginBox";
-import styles from "./styles/app.module.scss";
+import { MessageList } from './components/MessageList';
+import { LoginBox } from './components/LoginBox';
+import styles from './styles/app.module.scss';
 
 export function App() {
   return (
@@ -8,7 +8,5 @@ export function App() {
       <MessageList />
       <LoginBox />
     </main>
-  )
+  );
 }
-
-

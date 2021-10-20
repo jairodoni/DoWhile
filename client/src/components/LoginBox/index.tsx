@@ -1,5 +1,5 @@
-import styles from './styles.module.scss'
-import { VscGithubInverted } from 'react-icons/vsc'
+import styles from './styles.module.scss';
+import { VscGithubInverted } from 'react-icons/vsc';
 
 export function LoginBox() {
   return (
@@ -10,5 +10,5 @@ export function LoginBox() {
         Entrar com Github
       </a>
     </div>
-  )
+  );
 }
