@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home } from './src/screens/Home';
+import { Home } from './src/screens/home';
 import {
   useFonts,
   Roboto_400Regular,
