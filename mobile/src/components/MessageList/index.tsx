@@ -15,7 +15,7 @@ export function MessageList() {
       avatar_url: 'https://randomuser.me/api/portraits/women/95.jpg',
     }
   }
-
+  // "keyboardShouldPersistTaps" faz com que o teclado seja fechado ao clicar na lista
   return (
     <ScrollView
       style={styles.container}
