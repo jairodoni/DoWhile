@@ -1,39 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Message } from '../Message';
+import { api } from '../../services/api';
+import { io } from 'socket.io-client'
+
+import { MESSAGES_EXAMPLE } from '../../utils/messages'
 
 import { styles } from './styles';
 
-//contentContainerStyle premite personalizar o Scrollview
+interface MessageItem {
+  id: string;
+  text: string;
+  user: {
+    name: string;
+    avatar_url: string
+  }
+}
+
+let messagesQueue: MessageItem[] = [];
+// let messagesQueue: MessageItem[] = MESSAGES_EXAMPLE;
+
+const socket = io(String(api.defaults.baseURL));
+socket.on('new_message', (newMessage) => {
+  messagesQueue.push(newMessage);
+});
 
 export function MessageList() {
-  const message = {
-    id: '1',
-    text: 'Mensagem de teste',
-    user: {
-      name: 'Julia Moera',
-      avatar_url: 'https://randomuser.me/api/portraits/women/95.jpg',
-    }
+  const [currentMessages, setCurrentMessages] = useState<MessageItem[]>([])
+
+  async function fetchMessages() {
+    const messagesResponse = await api.get<MessageItem[]>('/messages/last3');
+    setCurrentMessages(messagesResponse.data);
   }
-  // "keyboardShouldPersistTaps" faz com que o teclado seja fechado ao clicar na lista
+  useEffect(() => {
+    fetchMessages();
+  }, [])
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (messagesQueue.length > 0) {
+        setCurrentMessages(prevState => [
+          messagesQueue[0],
+          prevState[0],
+          prevState[1],
+        ]);
+        messagesQueue.shift();
+      }
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [])
+
   return (
     <ScrollView
       style={styles.container}
+      //contentContainerStyle premite personalizar o Scrollview
       contentContainerStyle={styles.content}
+      // "keyboardShouldPersistTaps" faz com que o teclado seja fechado ao clicar na lista
       keyboardShouldPersistTaps="never"
     >
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
-      <Message data={message} />
+      {
+        currentMessages.map(message => <Message key={message.id} data={message} />)
+      }
     </ScrollView>
   );
 }

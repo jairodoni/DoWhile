@@ -1,0 +1,3 @@
+let GITHUB_CLIENT_ID = "numero gerado pelo "OAuth App" do github";
+
+export { GITHUB_CLIENT_ID };
