@@ -3,7 +3,7 @@ import { VscGithubInverted } from 'react-icons/vsc';
 import { useAuth } from '../../hooks/useAuth';
 
 export function LoginBox() {
-  const { signInUrl, user } = useAuth();
+  const { signInUrl } = useAuth();
 
   return (
     <div className={styles.loginBoxWrapper}>
