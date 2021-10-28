@@ -37,7 +37,7 @@ Tanto no mobile quanto no server é necessário o uso de algumas variaveis de am
 <br/>
 <br/>
 
-Você deve adicionar o Client ID na pasta **[client]('../web/.env.local.example.txt')**, **[mobile]('../web/.env.example.txt')** e na **[server]('../server/.env.example.txt')**. Na pasta server você deve adicionar tambem uma chave secreta gerada no OAuth App. Você não tera acesso a ela novamente então copie cole no .env da pasta **[server]('../server/.env.example.txt')**:
+Você deve adicionar o Client ID na pasta **[client](./.env.local.example.txt)**, **[mobile](../mobile/enviroment.js.txt)** e na **[server](../server/.env.example.txt)**. Na pasta server você deve adicionar tambem uma chave secreta gerada no OAuth App. Você não tera acesso a ela novamente então copie cole no .env da pasta **[server](../server/.env.example.txt)**:
 
 <img src="../.github/oauth05.png" alt="OAuth App Page"/>
 <br/>
