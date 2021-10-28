@@ -1,6 +1,6 @@
 # **Configurando OAuth App pro Mobile:**
 
-### OBS: Caso vc ja tenha criado um para Web, substitua as seguintes informações no OAuth App:
+#### OBS: Caso vc ja tenha criado um para Web, substitua as seguintes informações no OAuth App:
 
 > Homepage URL: https://auth.expo.io/@username/dowhile <br/>
 > Authorization callback URL: https://auth.expo.io/@username/dowhile
