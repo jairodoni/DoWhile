@@ -142,7 +142,7 @@ $ yarn
 # Execute o server:
 $ npm run dev
 
-    OU
+#   ou
 
 $ yarn dev
 ```
@@ -162,7 +162,7 @@ $ yarn
 # Executando website:
 $ npm run dev
 
-    OU
+#   ou
 
 $ yarn dev
 ```
